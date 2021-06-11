@@ -10,4 +10,4 @@ echo "Patching Julia Dockerfile"
 sed -i \
 -e "s/FROM debian:buster-slim/FROM python:${PYTHON_VERSION}-buster/g" \
 -e 's/CMD \[\"julia\"\]/# install PyJulia\nRUN python -m pip install julia\nRUN julia -e \"using Pkg; pkg\\\"add PyCall\\\"; pkg\\\"precompile\\\";\"\nCMD \[\"julia\"\]/g' \
---debug Dockerfile
+Dockerfile
