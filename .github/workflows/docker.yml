@@ -24,13 +24,17 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare Dockerfile
         run: sh update.sh ${{ matrix.julia }} ${{ matrix.python }}
+      - name: Check for file
+        run: if [[ -f "Dockerfile" ]]; then echo "Dockerfile found"; else echo "Dockerfile not found"; fi
       - name: Create Tag
         run: |
           echo "build_tag=docker.pkg.github.com/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')/python${{ matrix.python }}:${{ matrix.julia }}" >> $GITHUB_ENV
+          echo "Tag: ${{ env.build_tag }}"
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
           tags: ${{ env.build_tag }}
       - name: Cleanup
-        run: rm Dockerfile
+        run: if [[ -f "Dockerfile" ]]; then rm Dockerfile; fi
