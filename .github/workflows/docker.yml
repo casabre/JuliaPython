@@ -23,12 +23,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare Dockerfile
-        run: sh update.sh matrix.julia matrix.python
+        run: sh update.sh ${{ matrix.julia }} ${{ matrix.python }}
       - name: Build container image
         uses: docker/build-push-action@v2
         with:
           push: true
           tags: |
-            docker.pkg.github.com/${{ github.repository }}/julia/python${{ matrix.python }}:${{ matrix.julia }}
+            "docker.pkg.github.com/$(${{ github.repository }} | tr '[:upper:]' '[:lower:]')/julia/python${{ matrix.python }}:${{ matrix.julia }}"
       - name: Cleanup
         run: rm Dockerfile
