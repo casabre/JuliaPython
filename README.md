@@ -10,7 +10,7 @@ For instance if you need Python 3.8 and Julia 1.6, just run
 PYTHON_VERSION=3.8
 JULIA_VERSION=1.6
 
-docker pull "docker.pkg.github.com/casabre/JuliaPython/julia/python${PYTHON_VERSION}:${JULIA_VERSION}"
+docker pull "docker.pkg.github.com/casabre/juliapython/python${PYTHON_VERSION}:${JULIA_VERSION}"
 ```
 
 ## Supported versions
