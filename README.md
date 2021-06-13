@@ -1,6 +1,6 @@
 # Julia Python Docker images
 
-This repository is a CI only repository and meant to utilize Github actions in order to patch a specific Julia docker image and combine it with the Python image.
+This repository is a CI only repository and meant to utilize Github actions in order to patch a specific Julia Dockerfile and combine it with the requested Python image.
 
 ## Pulling a combined docker image
 
