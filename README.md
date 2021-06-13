@@ -22,7 +22,7 @@ docker pull "docker.pkg.github.com/casabre/juliapython/python${PYTHON_VERSION}:$
 
 ## Updating versions
 
-If you need more versions, please check the accesibility of the [Julia Dockerfile](https://github.com/docker-library/julia/tree/6458311a816406d7b1eb6d37ae92a6e27e32028c) link and the Python image for that specific version and extend the [docker.yml](.github/workflows/docker.yml) file in the matrix section and finally create a new pull request, e.g.
+If you need more versions, please check the accesibility of the [Julia Dockerfile](https://github.com/docker-library/julia/tree/6458311a816406d7b1eb6d37ae92a6e27e32028c) link and/or the Python image for that specific version and extend the [docker.yml](.github/workflows/docker.yml) file in the matrix section and finally update the [supported versions](#supported-versions) table, e.g.
 
 ```yml
 ...
@@ -37,4 +37,4 @@ jobs:
 ...
 ```
 
-In the end, please update the [supported versions](#supported-versions) table.
+In the end, please create a new pull request.
