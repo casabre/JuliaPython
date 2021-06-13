@@ -18,11 +18,6 @@ docker pull "docker.pkg.github.com/casabre/juliapython/python${PYTHON_VERSION}:$
 | Versions | 3.6                | 3.7                | 3.8                | 3.9                |
 | -------- | ------------------ | ------------------ | ------------------ | ------------------ |
 | 1.0      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.1      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.2      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.3      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.4      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.5      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 1.6      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 If you need more versions, please extend the [docker.yml](.github/workflows/docker.yml) file and create a pull request.
