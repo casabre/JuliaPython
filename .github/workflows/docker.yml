@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
       - name: Log in to GitHub Docker Registry
         uses: docker/login-action@v1
         with:
@@ -34,7 +36,13 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          file: ./Dockerfile
           push: true
           tags: ${{ env.build_tag }}
+      - name: Archive Dockerfile
+        uses: actions/upload-artifact@v2
+        with:
+          name: patched-Dockerfile
+          path: ./Dockerfile
       - name: Cleanup
         run: if [[ -f "Dockerfile" ]]; then rm Dockerfile; fi
