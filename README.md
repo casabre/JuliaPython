@@ -20,4 +20,21 @@ docker pull "docker.pkg.github.com/casabre/juliapython/python${PYTHON_VERSION}:$
 | 1.0      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | 1.6      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
-If you need more versions, please extend the [docker.yml](.github/workflows/docker.yml) file and create a pull request.
+## Updating versions
+
+If you need more versions, please check the accesibility of the [Julia Dockerfile](https://github.com/docker-library/julia/tree/6458311a816406d7b1eb6d37ae92a6e27e32028c) link and/or the Python image for that specific version and extend the [docker.yml](.github/workflows/docker.yml) file in the matrix section and finally update the [supported versions](#supported-versions) table, e.g.
+
+```yml
+...
+jobs:
+  push_to_registry:
+    name: Push Docker image to GitHub Packages
+    strategy:
+      fail-fast: false
+      matrix:        
+        julia: ["1.0", 1.6, 1.x]
+        python: [3.6, 3.7, 3.8, 3.9, 3.x]
+...
+```
+
+In the end, please create a new pull request.
