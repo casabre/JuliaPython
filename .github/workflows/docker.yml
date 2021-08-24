@@ -57,7 +57,7 @@ jobs:
       - name: Archive Dockerfile
         uses: actions/upload-artifact@v2
         with:
-          name: patched-Dockerfile
+          name: "patched-Dockerfile:${{ matrix.python }}-${{ matrix.julia }}"
           path: ./Dockerfile
 
       - name: Cleanup
