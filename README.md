@@ -1,4 +1,4 @@
-# Julia Python Docker images
+# Python Julia Docker images
 
 This repository is a CI only repository and meant to utilize Github actions in order to patch a specific Julia Dockerfile and combine it with the requested Python image.
 
@@ -10,7 +10,7 @@ For instance if you need Python 3.8 and Julia 1.6, just run
 PYTHON_VERSION=3.8
 JULIA_VERSION=1.6
 
-docker pull "docker.pkg.github.com/casabre/juliapython/python${PYTHON_VERSION}:${JULIA_VERSION}"
+docker pull "docker.io/casabre/python-julia:${PYTHON_VERSION}-${JULIA_VERSION}"
 ```
 
 ## Supported versions
