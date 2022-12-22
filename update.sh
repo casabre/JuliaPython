@@ -13,6 +13,6 @@ fi
 
 echo "Patching Julia Dockerfile"
 sed -i \
--e "s/FROM debian:${DEBIAN_VERSION}-slim/FROM python:${PYTHON_VERSION}-${DEBIAN_VERSION}-slim/g" \
+-e "s/FROM debian:${DEBIAN_VERSION}-slim/FROM python:${PYTHON_VERSION}-slim-${DEBIAN_VERSION}/g" \
 -e 's/CMD \[\"julia\"\]/# install PyJulia\nRUN python -m pip install julia\nRUN julia -e \"using Pkg; pkg\\\"add PyCall\\\"; pkg\\\"precompile\\\";\"\nCMD \[\"julia\"\]/g' \
 Dockerfile
