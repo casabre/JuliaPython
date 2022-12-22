@@ -15,10 +15,12 @@ docker pull "docker.io/casabre/python-julia:${PYTHON_VERSION}-${JULIA_VERSION}"
 
 ## Supported versions
 
-| Versions | 3.6                | 3.7                | 3.8                | 3.9                |
-| -------- | ------------------ | ------------------ | ------------------ | ------------------ |
-| 1.0      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| 1.6      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+Support for Python and Julia versions
+| Versions | 3.7              | 3.8                 | 3.9                | 3.10   | 3.11               |
+| -------- | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| 1.6      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 1.7      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 1.8      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ## Updating versions
 
@@ -32,8 +34,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:        
-        julia: ["1.0", 1.6, 1.x]
-        python: [3.6, 3.7, 3.8, 3.9, 3.x]
+        julia: [1.6, 1.7, 1.8, 1.x]
+        python: [3.7, 3.8, 3.9, 3.10, 3.11, 3.x]
 ...
 ```
 
