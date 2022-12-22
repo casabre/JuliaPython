@@ -8,8 +8,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        julia: ["1.0", 1.6]
-        python: [3.6, 3.7, 3.8, 3.9]
+        julia: ["1.0", 1.6, 1.7, 1.8]
+        python: [3.7, 3.8, 3.9, 3.10, 3.11]
+        debian: ["buster"]
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -26,12 +27,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Prepare Dockerfile
-        run: sh update.sh ${{ matrix.julia }} ${{ matrix.python }}
+        run: sh update.sh ${{ matrix.julia }} ${{ matrix.python }} ${{ matrix.debian }}
       - name: Check for file
         run: if [[ -f "Dockerfile" ]]; then echo "Dockerfile found"; else echo "Dockerfile not found"; fi
       - name: Create Tag
         run: |
-          echo "build_tag=docker.pkg.github.com/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')/python${{ matrix.python }}:${{ matrix.julia }}" >> $GITHUB_ENV
+          echo "build_tag=docker.pkg.github.com/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')/python${{ matrix.python }}:${{ matrix.julia }}-${{ matrix.debian }}" >> $GITHUB_ENV
           echo "Tag: ${{ env.build_tag }}"
       - name: Build container image
         uses: docker/build-push-action@v2
