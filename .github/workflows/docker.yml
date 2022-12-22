@@ -10,7 +10,7 @@ jobs:
       matrix:
         julia: [1.6, 1.7, 1.8]
         python: [3.7, 3.8, 3.9, 3.10, 3.11]
-        debian: ["buster"]
+        debian: ["buster", "bullseye"]
     runs-on: ubuntu-latest
     permissions:
       packages: write
