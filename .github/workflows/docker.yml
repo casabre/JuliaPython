@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        julia: ["1.0", 1.6, 1.7, 1.8]
+        julia: [1.6, 1.7, 1.8]
         python: [3.7, 3.8, 3.9, 3.10, 3.11]
         debian: ["buster"]
     runs-on: ubuntu-latest
